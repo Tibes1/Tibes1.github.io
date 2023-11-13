@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<app-home-hero></app-home-hero>
+<app-home-hero [content]="this.content"></app-home-hero>
 
 <app-about id="about" ></app-about>
 
@@ -9,3 +9,28 @@
 <app-contact id="contact"></app-contact>
 
 <app-footer></app-footer>
+  <h1>
+    ---------------- LOG
+  </h1>
+  <p>
+    {{lang}}
+  </p>
+  <p>
+    ---
+  </p>
+  <p>
+    {{selectedLanguage | json}}
+  </p>
+  <p>
+    {{selectedLanguage[0].content.presentation.replace('"','')}}
+  </p>
+  <p>
+    {{content.presentation |json }}
+  </p>
+
+  
+  <tr *ngFor="let language of languages">
+    <td>{{language.id}}</td>
+    <td>{{language.lang}}</td>
+    <td>{{language.content}}</td>
+  </tr>

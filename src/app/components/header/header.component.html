@@ -14,18 +14,18 @@
       <div class="header__main">
         <ul class="header__links">
           <li class="header__link-wrapper">
-            <a href="/" class="header__link"> Home </a>
+            <a href="/" class="header__link"> {{content.header.home}} </a>
           </li>
           <li class="header__link-wrapper">
-            <a href="#about" class="header__link">About </a>
+            <a href="#about" class="header__link">{{content.header.about}} </a>
           </li>
           <li class="header__link-wrapper">
             <a href="#projects" class="header__link">
-              Projects
+              {{content.header.projects}}
             </a>
           </li>
           <li class="header__link-wrapper">
-            <a href="#contact" class="header__link"> Contact </a>
+            <a href="#contact" class="header__link"> {{content.header.contact}} </a>
           </li>
         </ul>
 
@@ -47,19 +47,19 @@
       <div class="header__sm-menu-content">
         <ul class="header__sm-menu-links">
           <li class="header__sm-menu-link" (click)="toggleDiv()">
-            <a href="/"> Home </a>
+            <a href="/"> {{content.header.home}} </a>
           </li>
 
           <li class="header__sm-menu-link" (click)="toggleDiv()">
-            <a href=".#about"> About </a>
+            <a href=".#about"> {{content.header.about}} </a>
           </li>
 
           <li class="header__sm-menu-link" (click)="toggleDiv()">
-            <a href=".#projects"> Projects </a>
+            <a href=".#projects"> {{content.header.projects}} </a>
           </li>
 
           <li class="header__sm-menu-link" (click)="toggleDiv()">
-            <a href="#contact"> Contact </a>
+            <a href="#contact"> {{content.header.contact}} </a>
           </li>
         </ul>
       </div>

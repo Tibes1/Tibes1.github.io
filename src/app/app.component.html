@@ -1,14 +1,14 @@
-<app-header></app-header>
+<app-header [content]="this.content"></app-header>
 
 <app-home-hero [content]="this.content"></app-home-hero>
 
-<app-about id="about" ></app-about>
+<app-about id="about"[content]="this.content" ></app-about>
 
-<app-projects id="projects" ></app-projects>
+<app-projects id="projects" [content]="this.content"></app-projects>
 
-<app-contact id="contact"></app-contact>
+<app-contact id="contact" [content]="this.content"></app-contact>
 
-<app-footer></app-footer>
+<app-footer [content]="this.content"></app-footer>
   <h1>
     ---------------- LOG
   </h1>
@@ -22,7 +22,7 @@
     {{selectedLanguage | json}}
   </p>
   <p>
-    {{selectedLanguage[0].content.presentation.replace('"','')}}
+    {{selectedLanguage[0].content}}
   </p>
   <p>
     {{content.presentation |json }}

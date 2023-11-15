@@ -1,4 +1,4 @@
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, Input} from '@angular/core';
 
 
 @Component({
@@ -6,15 +6,9 @@ import { Component, Input, OnInit} from '@angular/core';
   templateUrl: './home-hero.component.html',
   styleUrls: ['./home-hero.component.scss']
 })
-export class HomeHeroComponent implements OnInit {
+export class HomeHeroComponent {
 
   @Input() content: any;  
 
-
-  ngOnInit(): void {
-      
-
-
-  }
 
 }

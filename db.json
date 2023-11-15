@@ -1,19 +1,85 @@
 {
   "languages": [
-        {
-          "id": 1,
-          "lang": "pt-BR",
-          "content": {
-            "presentation": "Ola, eu sou Roberto Tibes",
-            "outro": "teste"
-          }
-        },
-        {
-        "id": 2,
+      {
+        "id": 1,
         "lang": "en-US",
         "content": {
-          "presentation": "HEY, I'AM ROBERTO TIBES",
-          "outro": "test"
+          "introduction":{
+            "title": "Hi, I am Roberto Tibes",
+            "content": "A Web focused developer looking forward to an opportunity on a software development career"
+          },
+          "header":{
+            "home": "Home",
+            "about": "About",
+            "projects": "Projects",
+            "contact": "Contact"
+          },
+          "about": {
+            "title": "About Me",
+            "resume": "Here you will find more information about me, what I do, and my current skills mostly in terms of programming and technology",     
+            "call": "Get to know me!",
+          
+            "content1": "and I'm a Frontend Web Developer located in Porto União, SC-BR. I’ve been studying Information Systems College for 3 years now, and I’m looking forward to an opportunity to work on the software development area.",
+            "content2": "I'm a bit of a digital product junky. Over the years, I've used most of the most popular web and mobile frameworks. Feel free to contact me here.",
+
+            "skills": "My Skills"
+          },
+          "projects": {
+            "resume": "Here you will find some of the personal and clients projects that I created with each project containing its own case study",
+            "project":"Project",
+            "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facilis tempora, explicabo quae quod deserunt eius sapiente praesentium.",
+            "caseStudy": "Case Study"
+          },
+          "contact": {
+            "resume": "Feel free to Contact me by submitting the form below and I will get back to you as soon as possible",
+            "name": "Name",
+            "email": "Email",
+            "message": "Message",
+            "submit": "Submit"
+          },
+          "footer": {
+            "social": "Social"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "lang": "pt-BR",
+        "content": {
+          "introduction": {
+            "title": "Olá, eu sou Roberto Tibes",
+            "content": "Um desenvolvedor focado em Web ansioso por uma oportunidade na carreira de desenvolvimento de software."
+          },
+          "header": {
+            "home": "Início",
+            "about": "Sobre",
+            "projects": "Projetos",
+            "contact": "Contato"
+          },
+          "about": {
+            "title": "Sobre Mim",
+            "resume": "Aqui você encontrará mais informações sobre mim, o que faço e minhas habilidades atuais, principalmente em termos de programação e tecnologia.",
+            "call": "Conheça-me!",
+            "content1": "Sou um Desenvolvedor Frontend Web localizado em Porto União, SC-BR. Estudo Ciência da Computação há 3 anos e estou ansioso por uma oportunidade de trabalhar na área de desenvolvimento de software.",
+            "content2": "Sou um pouco viciado em produtos digitais. Ao longo dos anos, usei a maioria dos frameworks web e móveis mais populares. Sinta-se à vontade para entrar em contato comigo aqui.",
+            "skills": "Minhas Habilidades"
+          },
+          "projects": {
+            "resume": "Aqui você encontrará alguns dos projetos pessoais e de clientes que criei, cada projeto contendo seu próprio estudo de caso.",
+            "project": "Projeto",
+            "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facilis tempora, explicabo quae quod deserunt eius sapiente praesentium.",
+            "caseStudy": "Estudo de Caso"
+          },
+          "contact": {
+            "resume": "Sinta-se à vontade para entrar em contato comigo preenchendo o formulário abaixo, e entrarei em contato assim que possível.",
+            "name": "Nome",
+            "email": "E-mail",
+            "message": "Mensagem",
+            "submit": "Enviar"
+          },
+          "footer": {
+            "social": "Redes Sociais"
+          }
         }
       }
     ]

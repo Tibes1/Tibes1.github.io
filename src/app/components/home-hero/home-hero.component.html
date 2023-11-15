@@ -1,16 +1,15 @@
 <section class="home-hero">
     <div class="home-hero__content">
       <h1 class="heading-primary">
-        {{ content.presentation }}
-      </h1><!--Hey, I'am Roberto Tibes-->
+        {{ content.introduction.title }}
+      </h1>
       <div class="home-hero__info">
         <p class="text-primary">
-          A Web focused developer looking forward to new
-          opportunities on the software development career
+          {{content.introduction.content}}
         </p>
       </div>
       <div class="home-hero__cta">
-        <a href="./#projects" class="btn btn--bg">Projects</a>
+        <a href="./#projects" class="btn btn--bg">{{content.header.projects}}</a>
       </div>
     </div>
     <div class="home-hero__socials">

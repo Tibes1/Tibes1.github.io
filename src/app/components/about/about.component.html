@@ -1,35 +1,29 @@
 <section id="about" class="about sec-pad">
     <div class="main-container">
       <h2 class="heading heading-sec heading-sec__mb-med">
-        <span class="heading-sec__main">About Me</span>
+        <span class="heading-sec__main">{{content.about.title}}</span>
         <span class="heading-sec__sub">
-          Here you will find more information about me, what I do, and my current skills mostly in terms of programming and technology
+          {{content.about.resume}}
         </span>
       </h2>
       <div class="about__content">
         <div class="about__content-main">
-          <h3 class="about__content-title">Get to know me!</h3>
+          <h3 class="about__content-title">{{content.about.call}}</h3>
           <div class="about__content-details">
             <p class="about__content-details-para">
               <strong>Roberto Tibes</strong>
-              and I'm a 
-              <strong> Frontend Web Developer </strong>
-               located in Porto União, SC-BR. I’ve been studying Information Systems 
-               College for 3 years now, and I’m looking forward to an opportunity so 
-               I can start to work on the software development area.
+              {{content.about.content1 }}
             </p>
             <p class="about__content-details-para">
-              I'm a bit of a digital product junky. Over the years, I've used
-              most of the most popular web and mobile frameworks. Feel free to
-              <strong>contact</strong> me here.
+              {{content.about.content2 }}
             </p>
           </div>
           <a href="./#contact" class="btn btn--med btn--theme dynamicBgClr"
-            >Contact</a
+            > {{content.header.contact}} </a
           >
         </div>
         <div class="about__content-skills">
-          <h3 class="about__content-title">My Skills</h3>
+          <h3 class="about__content-title">{{ content.about.skills}}</h3>
           <div class="skills">
             <div class="skills__skill">HTML</div>
             <div class="skills__skill">CSS</div>

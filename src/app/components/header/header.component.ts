@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  
+  @Input() content: any;  
+
 
   hamMenuBtn = document.querySelector('.header__main-ham-menu-cont') as HTMLElement;
   smallMenu = document.querySelector('.header__sm-menu') as HTMLElement;

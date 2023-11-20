@@ -5,6 +5,7 @@ import { LanguageService } from 'src/app/services/language.service';
 
 import { NgForm } from '@angular/forms';
 
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -14,30 +15,52 @@ import { NgForm } from '@angular/forms';
 export class AppComponent  implements OnInit {
   title = 'Portifolio';
 
-  constructor(private languageService: LanguageService) {
-  }
+  constructor(private languageService: LanguageService) {}
 
   lang:string = navigator.language
 
-  language = {} as Language;
+  language$: Observable<Language> = new Observable((observer) => {
+    
+    //get
+    this.language = this.languageService.getLanguageByLang(this.lang);
+    console.log('----------------------------------')
+    console.log(this.language.subscribe((value: any) => {console.log(value)}))
+    observer.next(this.language)
+
+    //chacagem de lang inexistente
+
+    //popula local
+    console.log('teste0')
+    console.log(this.language$)
+    console.log("teste1")
+    console.log(this.language)
+    console.log("teste2")
+    console.log(this.content)
+    
+    observer.next(this.content)
+
+    //distribuo
+    
+  });
+
   languages: Language[] = [];
+  language:any;
 
   //navigator language selected
   selectedLanguage:any = {};  
   //extraction of content 
   content:any;
   
-  getLanguage() {
-    this.languageService.getLanguageByLang(this.lang).subscribe((language: Language) => {
-      this.selectedLanguage = language;
-
-      this.content = this.selectedLanguage[0].content
-    });
-  }
 
   ngOnInit() {
-    this.getLanguage()
-    this.getLanguages()
+
+    const teste = this.language$.subscribe(value=>{
+      console.log(value)
+    })
+      
+    //this.getLanguage()
+    console.log(teste)
+
   }
 
   // defini se uma linguagem será criada ou atualizada
@@ -72,7 +95,6 @@ export class AppComponent  implements OnInit {
     this.language = { ...language };
   }
   
-
   // limpa o formulario
   cleanForm(form: NgForm) {
     this.getLanguages();

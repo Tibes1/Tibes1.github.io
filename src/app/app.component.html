@@ -1,14 +1,15 @@
-<app-header [content]="this.content"></app-header>
+<app-header [content]="this.content | async"></app-header>
 
-<app-home-hero [content]="this.content"></app-home-hero>
+<app-home-hero [content]="this.content | async"></app-home-hero>
 
-<app-about id="about"[content]="this.content" ></app-about>
+<app-about id="about"[content]="this.content | async" ></app-about>
 
-<app-projects id="projects" [content]="this.content"></app-projects>
+<app-projects id="projects" [content]="this.content | async"></app-projects>
 
-<app-contact id="contact" [content]="this.content"></app-contact>
+<app-contact id="contact" [content]="this.content | async"></app-contact>
 
-<app-footer [content]="this.content"></app-footer>
+<app-footer [content]="this.content | async"></app-footer>
+
   <h1>
     ---------------- LOG
   </h1>

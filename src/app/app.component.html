@@ -1,14 +1,16 @@
-<app-header [content]="this.content | async"></app-header>
+<app-header [content]="content "></app-header>
 
-<app-home-hero [content]="this.content | async"></app-home-hero>
+<app-home-hero [content]="content"></app-home-hero>
 
-<app-about id="about"[content]="this.content | async" ></app-about>
+<app-about id="about"[content]="content " ></app-about>
 
-<app-projects id="projects" [content]="this.content | async"></app-projects>
+<app-projects id="projects" [content]="content"></app-projects>
 
-<app-contact id="contact" [content]="this.content | async"></app-contact>
+<app-contact id="contact" [content]="content"></app-contact>
 
-<app-footer [content]="this.content | async"></app-footer>
+<app-footer [content]="content"></app-footer>
+
+<button (click)="clicked()">{{ arrived ? 'Reset' : 'Resolve' }}</button>
 
   <h1>
     ---------------- LOG
@@ -23,15 +25,11 @@
     {{selectedLanguage | json}}
   </p>
   <p>
-    {{selectedLanguage[0].content}}
+    ----
   </p>
   <p>
-    {{content.presentation |json }}
+    {{ selectedLanguage.content.about[0] | json}}
   </p>
-
-  
-  <tr *ngFor="let language of languages">
-    <td>{{language.id}}</td>
-    <td>{{language.lang}}</td>
-    <td>{{language.content}}</td>
-  </tr>
+  <p>
+    {{content | json }}
+  </p>

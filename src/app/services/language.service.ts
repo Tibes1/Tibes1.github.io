@@ -83,47 +83,10 @@ export class LanguageService {
     return this.httpClient.delete<Language>(this.url + '/' + language.id, this.httpOptions)
   }
 
-  
-    getLanguageByLang(lang: string):void {
-      //= this.httpClient.get<Language>(this.url +  '?lang=pt-BR')
-    
-      let language = this.httpClient.get<Language>(this.url +'?lang=' + lang)
-    
-      let retorno1
-      console.log("teste1 -------")
-      language.subscribe((value) => {
-        console.log("teste")
-        console.log(value)
-        retorno1 = value
-      })
+  getLanguageByLang(lang: string):Observable<Language> {
+    //= this.httpClient.get<Language>(this.url +  '?lang=pt-BR')
+    let language = this.httpClient.get<Language>(this.url +'?lang=' + lang)
+    return language
+  }
 
-      return retorno1
-    }
-
-
-
-
-    //async randonfunc(observable: any, lang: string) {
-//
-  //  let teste:any
-//
-  //  observable.subscribe((data: Language) => {
-  //      teste = JSON.stringify(data)
-//
-  //      console.log(data)
-//
-  //      if (teste === undefined) {
-//
-  //        //this.mainGPT(lang)
-  //        console.log("--------------------------")
-  //        console.log("nulo")
-  //        console.log(this.url + '?lang=' + lang)
-  //        return data
-  //      } else {
-  //        return data
-  //      }
-  //    }
-  //  )
-  //}
-//
 }

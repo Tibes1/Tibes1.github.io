@@ -1,7 +1,7 @@
 import { Component, OnInit  } from '@angular/core';
 
 import { Language, Content } from 'src/app/Language';
-import { LanguageService} from 'src/app/services/language.service'; //, lang, language, selectedLanguage, content 
+import { LanguageService} from 'src/app/services/language.service'; 
 
 @Component({
   selector: 'app-root',
@@ -22,12 +22,18 @@ export class AppComponent  implements OnInit {
   testeAny:any
 
   async getLanguage() {
-    console.log('passo :2')
-    await this.languageService.getLanguageByLang(this.lang).subscribe((data: Array<Language>) => {
-      this.language = data
-      this.selectedLanguage = this.language[0]
-      this.content = this.selectedLanguage.content
-    })
+    try {
+      await this.languageService.getLanguageByLang();
+      console.log("teste 7");
+  
+      this.language = this.languageService.language;
+      this.selectedLanguage = this.language[0];
+      this.content = this.selectedLanguage.content;
+    } catch (err) {
+      console.error(err);
+    }
+
+    
   }
 
 

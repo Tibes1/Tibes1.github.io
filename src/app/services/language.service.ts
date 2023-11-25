@@ -16,7 +16,7 @@ export class LanguageService {
   constructor(private httpClient: HttpClient) { }
   
   lang:string = navigator.language
-  language!:Array<Language>
+  language:Array<Language> = []
   selectedLanguage!:Language; 
   content!:Content
 
@@ -88,19 +88,43 @@ export class LanguageService {
     return this.httpClient.delete<Language>(this.url + '/' + language.id, this.httpOptions)
   }
 
-  getLanguageByLang(lang: string):any {
-    console.log('passo :3')
-    //= this.httpClient.get<Language>(this.url +  '?lang=pt-BR')
-    let returnV = this.httpClient.get<Language>(this.url +'?lang=' + lang)
-    //.subscribe((data: Array<Language>) => {
-    //  this.language = data
-    //  this.selectedLanguage = this.language[0]
-    //  this.content = this.selectedLanguage.content
-    //})
-    return returnV
-    console.log('passo :4')
-    console.log(this.language)//.subscribe(a => console.log(a))
-    console.log('passo :5')
+  fullLog() {
+    console.log("teste: 1")
+    console.log(this.language)
+    console.log("teste: 2")
+    console.log(this.lang)
+    console.log("teste: 3")
+    console.log(this.language[0])
+    console.log("teste: 4")
+    console.log(this.selectedLanguage)
+    console.log("teste: 5")
+    console.log(this.content)
+    console.log("teste: 6")
+    console.log(this.content.about.call)
+  }
+
+  getLanguageByLang(): Promise<Array<Language>> {
+    console.log('passo :3');
+  
+    return new Promise<Array<Language>>((resolve, reject) => {
+      this.httpClient.get<Language>(this.url + '?lang=' + this.lang)
+        .subscribe(
+          (data: any) => {
+            if (data[0] == null) {
+              console.log('language do not exist')
+            } 
+            this.language = data;
+            this.selectedLanguage = this.language[0];
+            this.content = this.selectedLanguage.content;
+            this.fullLog();
+            resolve(this.language); // Resolving the promise with the language data
+          },
+          (error: any) => {
+            console.error(error);
+            reject(error); // Rejecting the promise with the error
+          }
+        );
+    });
   }
 
 }

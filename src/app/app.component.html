@@ -1,3 +1,4 @@
+
 <app-header [content]="content "></app-header>
 
 <app-home-hero [content]="content"></app-home-hero>
@@ -9,9 +10,6 @@
 <app-contact id="contact" [content]="content"></app-contact>
 
 <app-footer [content]="content"></app-footer>
-
-<button (click)="clicked()">{{ arrived ? 'Reset' : 'Resolve' }}</button>
-
   <h1>
     ---------------- LOG
   </h1>
@@ -22,14 +20,14 @@
     ---
   </p>
   <p>
-    {{selectedLanguage | json}}
+    {{selectedLanguage !| json}}
   </p>
   <p>
     ----
   </p>
   <p>
-    {{ selectedLanguage.content.about[0] | json}}
+    {{ selectedLanguage.content.header.home }}
   </p>
   <p>
-    {{content | json }}
+    {{ content.header.home }}
   </p>

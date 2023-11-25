@@ -1,36 +1,36 @@
 export interface Content {
-    introduction:[
+    introduction:{
         title:string,
         content:string
-    ],
-    header:[
+    },
+    header:{
         home:string,
         about:string,
         projects:string,
         contact:string
-    ],
-    about:[
+    },
+    about:{
         title:string,
         resume:string,
         call:string
-    ],
-    projects:[
+    },
+    projects:{
         resume:string,
         project:string,
         call:string,
         content:string,
         skills:string
-    ],
-    contact:[
+    },
+    contact:{
         resume:string,
         name:string,
         email:string,
         message:string,
         submit:string
-    ],
-    footer:[
+    },
+    footer:{
         social:string,
-    ]
+    }
 }
 
 export interface Language {

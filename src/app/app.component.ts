@@ -1,7 +1,7 @@
 import { Component, OnInit  } from '@angular/core';
 
 import { Language, Content } from 'src/app/Language';
-import { LanguageService } from 'src/app/services/language.service';
+import { LanguageService} from 'src/app/services/language.service'; //, lang, language, selectedLanguage, content 
 
 @Component({
   selector: 'app-root',
@@ -15,45 +15,28 @@ export class AppComponent  implements OnInit {
   languages: Language[] = [];
 
   lang:string = navigator.language
-  language!:Language
-  selectedLanguage!:Language;  
+  language!:Array<Language>
+  selectedLanguage!:Language; 
   content!:Content
 
+  testeAny:any
 
-  ngOnInit() {
-    this.languageService.getLanguageByLang(this.lang).subscribe((value:Language) => {
-      this.language = value
-      this.selectedLanguage = this.language
-      this.content = this.language.content
-      
-      console.log("teste2")
-      console.log(this.language)
-      console.log("teste3")
-      console.log(this.selectedLanguage)
-      console.log("teste4")
-      console.log(this.content)
+  async getLanguage() {
+    console.log('passo :2')
+    await this.languageService.getLanguageByLang(this.lang).subscribe((data: Array<Language>) => {
+      this.language = data
+      this.selectedLanguage = this.language[0]
+      this.content = this.selectedLanguage.content
     })
   }
 
-  private resolve: Function|null = null
-  greeting: Promise<string>|null = null
-  arrived: boolean = false
 
-  clicked() {
-    if (this.arrived) {
-      this.reset();
-    } else {
-      this.resolve!();
-      this.arrived = true;
-    }
+
+  ngOnInit() {
+    console.log('passo :1')
+    this.getLanguage()
   }
 
-  reset() {
-    this.arrived = false;
-    this.greeting = new Promise<string>((resolve, reject) => {
-      this.resolve = resolve;
-    });
-  }
 }
 
 //  // defini se uma linguagem será criada ou atualizada

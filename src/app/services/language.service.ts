@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map, switchMap, timer } from 'rxjs';
 import { Content, Language } from '../Language';
 
 import { environment } from '../env';
@@ -14,45 +14,19 @@ export class LanguageService {
 
   // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }
-  
+  // Adicione as seguintes propriedades à sua classe
+  lastApiCallTime: number = 0;
+  callsRemaining: number = 5; // Defina o número máximo de chamadas permitidas
+
   lang:string = navigator.language
   language:Array<Language> = []
   selectedLanguage!:Language; 
   content!:Content
 
-
   openai:any = new OpenAI({
     apiKey: environment.apiKey,
     dangerouslyAllowBrowser: true 
   });
-
-
-
-  mainGPT(lang:string) {
-    let observable:Observable<Language>
-    let json:any
-
-    observable = this.httpClient.get<Language>(this.url +'?lang=en-US')
-
-    observable.subscribe((data: Language) => {
-      console.log("-------------")
-      console.log("teste1")
-      json = JSON.stringify(data)
-
-      console.log(json)
-      console.log(lang)
-
-      const completion = this.openai.chat.completions.create({
-        messages: [{ role: "system", content: `traduza para linguagem:${lang} o seguinte json:${json}`}],
-        model: "gpt-3.5-turbo",
-      });
-      console.log("_____________________________________________")
-      console.log(completion.choices[0]);
-    });
-
-    
-
-  }
 
   url = `http://localhost:3000/languages`; // api rest fake
 
@@ -88,6 +62,38 @@ export class LanguageService {
     return this.httpClient.delete<Language>(this.url + '/' + language.id, this.httpOptions)
   }
 
+  
+  mainGPT(lang: string): Observable<Language> {
+    let json: any;
+  
+    return this.httpClient.get<Language>(this.url + '?lang=en-US').pipe(
+      switchMap((data: Language) => {
+        console.log("-------------");
+        console.log("teste1");
+        json = JSON.stringify(data);
+  
+        console.log(json);
+        console.log(lang);
+        console.log({ role: "system", content: `traduza para linguagem:${lang} o seguinte json:${json}` })
+  
+        return this.openai.chat.completions.create({
+          messages: [{ role: "system", content: `traduza para linguagem:${lang} o seguinte json:${json}` }],
+          model: "gpt-3.5-turbo",
+        });
+      }),
+      map((completion: any) => {
+        console.log("_____________________________________________");
+        console.log(completion.choices[0]);
+        // Retornando os dados da tradução criada
+        return completion.choices[0];
+      }),
+      catchError((error) => {
+        console.error(error);
+        throw error;
+      })
+    );
+  }
+
   fullLog() {
     console.log("teste: 1")
     console.log(this.language)
@@ -103,6 +109,15 @@ export class LanguageService {
     console.log(this.content.about.call)
   }
 
+  updateLanguageData(data: Language[]): void {
+    this.language = data;
+    this.selectedLanguage = data[0];
+    this.content = data[0].content;
+    this.fullLog();
+    this.lastApiCallTime = Date.now();
+  }
+  
+
   getLanguageByLang(): Promise<Array<Language>> {
     console.log('passo :3');
   
@@ -110,14 +125,29 @@ export class LanguageService {
       this.httpClient.get<Language>(this.url + '?lang=' + this.lang)
         .subscribe(
           (data: any) => {
-            if (data[0] == null) {
-              console.log('language do not exist')
-            } 
-            this.language = data;
-            this.selectedLanguage = this.language[0];
-            this.content = this.selectedLanguage.content;
-            this.fullLog();
-            resolve(this.language); // Resolving the promise with the language data
+            if (data.length === 0) {
+              if (this.callsRemaining > 0) {
+                this.callsRemaining--;
+                
+                // O array está vazio, chama a função para criar uma nova tradução
+                this.mainGPT(this.lang).subscribe(
+                  (newTranslation: Language) => {
+                    this.updateLanguageData([newTranslation]);
+                    resolve(this.language); // Resolvendo a promise com os dados da linguagem
+                  },
+                  (error) => {
+                    console.error(error);
+                    reject(error); // Rejeitando a promise com o erro
+                  }
+                );
+              } else {
+                console.log('Limite de chamadas excedido. Aguarde para evitar exceder os limites da API.');
+                resolve(this.language); // Retorna os dados já existentes
+              }
+            } else {
+              this.updateLanguageData(data);
+              resolve(this.language); // Resolvendo a promise com os dados da linguagem
+            }
           },
           (error: any) => {
             console.error(error);

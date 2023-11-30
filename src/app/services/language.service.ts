@@ -16,7 +16,7 @@ export class LanguageService {
   constructor(private httpClient: HttpClient) { }
   // Adicione as seguintes propriedades à sua classe
   lastApiCallTime: number = 0;
-  callsRemaining: number = 5; // Defina o número máximo de chamadas permitidas
+  callsRemaining: number = 1; // Defina o número máximo de chamadas permitidas
 
   lang:string = navigator.language
   language:Array<Language> = []
@@ -24,7 +24,8 @@ export class LanguageService {
   content!:Content
 
   openai:any = new OpenAI({
-    apiKey: environment.apiKey,
+    //apiKey: environment.apiKey,
+    apiKey: 'fake api key',
     dangerouslyAllowBrowser: true 
   });
 
@@ -63,10 +64,10 @@ export class LanguageService {
   }
 
   
-  mainGPT(lang: string): Observable<Language> {
+  mainGPT(lang: string): any {
     let json: any;
   
-    return this.httpClient.get<Language>(this.url + '?lang=en-US').pipe(
+    const APIreturn = this.httpClient.get<Language>(this.url + '?lang=en-US').pipe(
       switchMap((data: Language) => {
         console.log("-------------");
         console.log("teste1");
@@ -74,12 +75,15 @@ export class LanguageService {
   
         console.log(json);
         console.log(lang);
-        console.log({ role: "system", content: `traduza para linguagem:${lang} o seguinte json:${json}` })
-  
+        
         return this.openai.chat.completions.create({
-          messages: [{ role: "system", content: `traduza para linguagem:${lang} o seguinte json:${json}` }],
-          model: "gpt-3.5-turbo",
-        });
+          "model": "gpt-3.5-turbo",
+          "messages":[
+            {"role": "system", "content": "You are a  translator"},
+            {"role": "user", "content": `translate the json to ${lang}: ${json}`}
+          ]
+        }
+        );
       }),
       map((completion: any) => {
         console.log("_____________________________________________");
@@ -91,7 +95,13 @@ export class LanguageService {
         console.error(error);
         throw error;
       })
-    );
+    )
+    
+    APIreturn.toPromise().then(result => {
+      console.log(result)
+      console.log(JSON.parse(result.message.content));
+      this.updateLanguageData(JSON.parse(result.message.content))
+    })
   }
 
   fullLog() {
@@ -120,6 +130,7 @@ export class LanguageService {
 
   getLanguageByLang(): Promise<Array<Language>> {
     console.log('passo :3');
+
   
     return new Promise<Array<Language>>((resolve, reject) => {
       this.httpClient.get<Language>(this.url + '?lang=' + this.lang)
@@ -135,7 +146,7 @@ export class LanguageService {
                     this.updateLanguageData([newTranslation]);
                     resolve(this.language); // Resolvendo a promise com os dados da linguagem
                   },
-                  (error) => {
+                  (error: any) => {
                     console.error(error);
                     reject(error); // Rejeitando a promise com o erro
                   }

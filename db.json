@@ -41,12 +41,12 @@
       }
     },
     {
-      "id": 1701526285161,
+      "id": 1701543960188,
       "lang": "pt-BR",
       "content": {
         "introduction": {
           "title": "Olá, eu sou Roberto Tibes",
-          "content": "Desenvolvedor focado em Web, procurando oportunidade em uma carreira de desenvolvimento de software"
+          "content": "Um desenvolvedor focado em Web em busca de uma oportunidade na carreira de desenvolvimento de software"
         },
         "header": {
           "home": "Início",
@@ -58,25 +58,25 @@
           "title": "Sobre Mim",
           "resume": "Aqui você encontrará mais informações sobre mim, o que eu faço e minhas habilidades atuais, principalmente em termos de programação e tecnologia",
           "call": "Conheça-me!",
-          "content1": "e sou um Desenvolvedor Web Frontend localizado em Porto União, SC-BR. Estou estudando Sistemas de Informação na faculdade há 3 anos e estou ansioso por uma oportunidade para trabalhar na área de desenvolvimento de software.",
-          "content2": "Eu sou um pouco viciado em produtos digitais. Ao longo dos anos, eu usei a maioria dos frameworks web e móveis mais populares. Sinta-se à vontade para entrar em contato comigo aqui.",
+          "content1": "e sou um desenvolvedor Web Frontend localizado em Porto União, SC-BR. Estou estudando Ciência da Computação há 3 anos e estou em busca de uma oportunidade de trabalho na área de desenvolvimento de software.",
+          "content2": "Eu sou um viciado em produtos digitais. Ao longo dos anos, usei a maioria dos frameworks mais populares para web e mobile. Sinta-se à vontade para entrar em contato comigo aqui.",
           "skills": "Minhas Habilidades"
         },
         "projects": {
           "resume": "Aqui você encontrará alguns dos projetos pessoais e de clientes que criei, cada projeto contendo seu próprio estudo de caso",
           "project": "Projeto",
-          "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facilis tempora explicabo quae quod deserunt eius sapiente praesentium.",
+          "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facilis tempora, explicabo quae quod deserunt eius sapiente praesentium.",
           "caseStudy": "Estudo de Caso"
         },
         "contact": {
-          "resume": "Sinta-se à vontade para entrar em contato comigo preenchendo o formulário abaixo e eu entrarei em contato o mais rápido possível",
+          "resume": "Sinta-se à vontade para entrar em contato comigo preenchendo o formulário abaixo e eu retornarei o mais breve possível",
           "name": "Nome",
-          "email": "Email",
+          "email": "E-mail",
           "message": "Mensagem",
           "submit": "Enviar"
         },
         "footer": {
-          "social": "Redes Sociais"
+          "social": "Social"
         }
       }
     }

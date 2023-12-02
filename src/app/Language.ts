@@ -36,6 +36,6 @@ export interface Content {
 export interface Language {
     id: number;
     lang: string;
-    content: Content
+    content: Content;
     
 };

@@ -1,7 +1,8 @@
 import { Component, OnInit  } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { Language, Content } from 'src/app/Language';
-import { LanguageService} from 'src/app/services/language.service'; 
+import { LanguageService } from 'src/app/services/language.service'; 
 
 @Component({
   selector: 'app-root',
@@ -18,29 +19,37 @@ export class AppComponent  implements OnInit {
   language!:Array<Language>
   selectedLanguage!:Language; 
   content!:Content
+  
+  private languageUpdateSubscription: Subscription | undefined;
 
-  testeAny:any
+  handleLanguageUpdate() {
+    this.language = this.languageService.language;
+    this.selectedLanguage = this.languageService.selectedLanguage;
+    this.content = this.languageService.content;
+
+  }
 
   async getLanguage() {
     try {
       await this.languageService.getLanguageByLang();
       console.log("teste 7");
+
+      this.handleLanguageUpdate()
   
-      this.language = this.languageService.language;
-      this.selectedLanguage = this.language[0];
-      this.content = this.selectedLanguage.content;
     } catch (err) {
       console.error(err);
     }
 
-    
   }
-
-
 
   ngOnInit() {
     console.log('passo :1')
     this.getLanguage()
+
+    this.languageUpdateSubscription = this.languageService.languageUpdate$.subscribe(() => {
+      this.handleLanguageUpdate();
+    });
+
   }
 
 }

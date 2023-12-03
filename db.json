@@ -79,6 +79,86 @@
           "social": "Social"
         }
       }
+    },
+    {
+      "id": 1701558696248,
+      "lang": "es-ES",
+      "content": {
+        "introduction": {
+          "title": "Hola, soy Roberto Tibes",
+          "content": "Desarrollador enfocado en la web buscando oportunidades en una carrera de desarrollo de software"
+        },
+        "header": {
+          "home": "Inicio",
+          "about": "Sobre mí",
+          "projects": "Proyectos",
+          "contact": "Contacto"
+        },
+        "about": {
+          "title": "Sobre Mí",
+          "resume": "Aquí encontrarás más información sobre mí, lo que hago y mis habilidades actuales principalmente en términos de programación y tecnología",
+          "call": "¡Conóceme!",
+          "content1": "y soy un desarrollador web frontend ubicado en Porto União, SC-BR. He estado estudiando Informática en la universidad durante 3 años y estoy buscando una oportunidad para trabajar en el área de desarrollo de software.",
+          "content2": "Soy un poco adicto a los productos digitales. A lo largo de los años, he utilizado la mayoría de los marcos web y móviles más populares. No dudes en contactarme aquí.",
+          "skills": "Mis habilidades"
+        },
+        "projects": {
+          "resume": "Aquí encontrarás algunos de los proyectos personales y de clientes que he creado, cada uno con su propio estudio de caso",
+          "project": "Proyecto",
+          "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facilis tempora, explicabo quae quod deserunt eius sapiente praesentium.",
+          "caseStudy": "Estudio de Caso"
+        },
+        "contact": {
+          "resume": "Siéntete libre de contactarme enviando el siguiente formulario y te responderé lo antes posible",
+          "name": "Nombre",
+          "email": "Email",
+          "message": "Mensaje",
+          "submit": "Enviar"
+        },
+        "footer": {
+          "social": "Redes Sociales"
+        }
+      }
+    },
+    {
+      "id": 1701627746868,
+      "lang": "uk",
+      "content": {
+        "introduction": {
+          "title": "Привіт, мене звуть Роберто Тібес",
+          "content": "Розробник, спрямований на веб, який шукає можливостей у кар'єрі розробки програмного забезпечення"
+        },
+        "header": {
+          "home": "Головна",
+          "about": "Про мене",
+          "projects": "Проекти",
+          "contact": "Контакт"
+        },
+        "about": {
+          "title": "Про мене",
+          "resume": "Тут ви знайдете більше інформації про мене, про те, що я роблю, і мої поточні навички переважно в галузі програмування та технологій",
+          "call": "Познайомтесь зі мною!",
+          "content1": "і я Фронтенд-розробник, розташований у Порту-Уніон, SC-BR. Я вивчаю коледж інформаційних систем вже 3 роки, і я шукаю можливостей працювати в галузі розробки програмного забезпечення.",
+          "content2": "Я немного залежний від цифрових продуктів. Протягом років я використовував більшість популярних веб- та мобільних фреймворків. Зв'яжіться зі мною за цими контактами.",
+          "skills": "Мої навички"
+        },
+        "projects": {
+          "resume": "Тут ви знайдете деякі особисті та клієнтські проекти, які я створив, з кожним проектом, що містить власну кейс-стадію",
+          "project": "Проект",
+          "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facilis tempora, explicabo quae quod deserunt eius sapiente praesentium.",
+          "caseStudy": "Кейс-стадія"
+        },
+        "contact": {
+          "resume": "Не соромтесь зв'язатись за допомогою форми нижче, і я якомога швидше відповім",
+          "name": "Ім'я",
+          "email": "Електронна пошта",
+          "message": "Повідомлення",
+          "submit": "Надіслати"
+        },
+        "footer": {
+          "social": "Соціальні мережі"
+        }
+      }
     }
   ]
 }

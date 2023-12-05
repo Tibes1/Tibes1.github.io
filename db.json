@@ -159,6 +159,46 @@
           "social": "Соціальні мережі"
         }
       }
+    },
+    {
+      "id": 1701632908056,
+      "lang": "it-IT",
+      "content": {
+        "introduction": {
+          "title": "Ciao, sono Roberto Tibes",
+          "content": "Uno sviluppatore web alla ricerca di opportunità per una carriera nello sviluppo software"
+        },
+        "header": {
+          "home": "Home",
+          "about": "Chi sono",
+          "projects": "Progetti",
+          "contact": "Contatti"
+        },
+        "about": {
+          "title": "Chi sono",
+          "resume": "Qui troverai ulteriori informazioni su di me, su ciò che faccio e sulle mie attuali competenze principalmente in termini di programmazione e tecnologia",
+          "call": "Conosciamoci!",
+          "content1": "Sono uno sviluppatore Web Frontend con sede a Porto União, SC-BR. Ho studiato presso la Facoltà di Sistemi Informativi da 3 anni e sono in cerca di opportunità nel settore dello sviluppo software.",
+          "content2": "Sono un appassionato di prodotti digitali. Negli anni ho utilizzato la maggior parte dei framework web e mobile più popolari. Non esitare a contattarmi qui.",
+          "skills": "Le mie competenze"
+        },
+        "projects": {
+          "resume": "Qui troverai alcuni dei progetti personali e per clienti che ho creato, con ciascun progetto che include un case study",
+          "project": "Progetto",
+          "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facilis tempora, explicabo quae quod deserunt eius sapiente praesentium.",
+          "caseStudy": "Case Study"
+        },
+        "contact": {
+          "resume": "Sentiti libero di contattarmi compilando il modulo qui di seguito e ti risponderò il prima possibile",
+          "name": "Nome",
+          "email": "Email",
+          "message": "Messaggio",
+          "submit": "Invia"
+        },
+        "footer": {
+          "social": "Social"
+        }
+      }
     }
   ]
 }

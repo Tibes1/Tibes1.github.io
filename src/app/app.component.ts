@@ -32,7 +32,6 @@ export class AppComponent  implements OnInit {
   async getLanguage() {
     try {
       await this.languageService.getLanguageByLang();
-      console.log("teste 7");
 
       this.handleLanguageUpdate()
   
@@ -43,7 +42,6 @@ export class AppComponent  implements OnInit {
   }
 
   ngOnInit() {
-    console.log('passo :1')
     this.getLanguage()
 
     this.languageUpdateSubscription = this.languageService.languageUpdate$.subscribe(() => {

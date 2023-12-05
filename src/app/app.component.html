@@ -10,25 +10,3 @@
 <app-contact id="contact" [content]="content"></app-contact>
 
 <app-footer [content]="content"></app-footer>
-
-  <h1>
-    ---------------- LOG
-  </h1>
-  <p>
-    {{lang}}
-  </p>
-  <p>
-    ---
-  </p>
-  <p>
-    {{selectedLanguage !| json}}
-  </p>
-  <p>
-    ----
-  </p>
-  <p>
-    {{ selectedLanguage?.content?.header?.about }}
-  </p>
-  <p>
-    {{ content?.contact?.resume }}
-  </p>
